@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>システム開発</title>
+	<meta name="author" content="">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="stylesheet" href="css/001_x14g001.css">
+	<link rel="stylesheet" href="css/02_nomalize.css">
+	<!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
+	<script>
+		function move(e) {
+			var output = document.querySelector("#output");
+			var img = document.querySelector("#img");
+			var x = parseInt(e.clientX) - parseInt(img.offsetLeft);
+			var y = parseInt(e.clientY) - parseInt(img.offsetTop);
+			output.innerHTML = x + "," + y;
+		}
+	</script>
+	<script type="text/javascript" src="Scripts/AflLib.js"></script>
+	<script type="text/javascript" src="Scripts/worldmap.js"></script>
+
+</head>
+<body>
+
+
+	<div id="header">
+		<h2>sekai no takeshi せかたけ</h2>
+	</div>
+
+	<div id="output">aaaaaa</div>
+	<img id="img" src="b000301yzm.02.jpg" usemap="#b000301yzm.02.jpg"
+		onmousemove="move(event);">
+	<map name="b000301yzm.02.jpg">
+		<area shape="rect" coords="100,100,473,264" alt="四角形" target="_blank" id = "eurasia">
+		<area shape="rect" coords="21,251,160,423" alt="四角形" target="_blank" id = "africa">
+		<area shape="rect" coords="360,374,468,448" alt="四角形" target="_blank" id = "australia">
+		<area shape="rect" coords="590,111,885,304" alt="四角形" target="_blank" id = "northAmerica">
+		<area shape="rect" coords="820,314,913,500" alt="四角形" target="_blank" id = "southAmerica">
+		<area shape="rect" coords="703,1450,769,1603"
+			href="https://www.bungie.net/ja/" alt="四角形" target="_blank">
+		<area shape="rect" coords="2024,1696,2172,1836"
+			href="http://www.1pondo.tv/?agecheck=no" alt="四角形" target="_blank">
+
+
+
+	</map>
+
+	<div id="contents">
+
+	</div>
+
+
+	<div id="Colombia">
+
+	</div>
+
+</body>
