@@ -13,6 +13,10 @@ function Main()
 	eurasia.onclick = function eura(){
 		document.getElementById("contents").innerHTML = "ゆーらしあ";
 		document.getElementById("Colombia").innerHTML = "";
+
+		//データ受信要求
+		var sendData = {"cmd":"read"};
+		AFL.sendJson("Ajax10",sendData,onRecv);
 	}
 	
 	africa.onclick = function afri(){

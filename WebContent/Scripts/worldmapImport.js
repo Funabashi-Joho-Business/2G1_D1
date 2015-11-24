@@ -5,17 +5,19 @@ function Main() {
 	// タイトルの設定
 	document.title = "データ登録用";
 
-	var id = document.querySelector("input#id");
-	var data = document.querySelector("input#data");
+	var id = document.querySelector("select#id");
+	var data = document.querySelector("textarea#data");
 	var button = document.querySelector("input#button");
+
 	// クリックイベントの処理
 	button.addEventListener("click", onClick);
 
 	function onClick() {
-		var senddata = {
+		var Senddata = {
 			"id" : id.value,
 			"data" : data.value
 		};
-		AFL.sendJson("Ajax09", senddata, onJson);
+
+		AFL.sendJson("WorldmapIpoDB", Senddata,function(){});
 	}
 }
