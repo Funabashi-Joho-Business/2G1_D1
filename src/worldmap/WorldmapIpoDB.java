@@ -34,22 +34,22 @@ public class WorldmapIpoDB extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-//	public void init() throws ServletException {
-//		// TODO 自動生成されたメソッド・スタブ
-//		super.init();
-//
-//		try {
-//			mOracle = new Oracle();
-//			mOracle.connect("ux4", DB_ID, DB_PASS);
-//
-//			// テーブルが無ければ作成
-//			if (!mOracle.isTable("db_worldmap")) {
-//				mOracle.execute("create table db_worldmap(id number,data varchar2(500))");
-//			}
-//		} catch (Exception e) {
-//			System.err.println("認証に失敗しました");
-//		}
-//	}
+	public void init() throws ServletException {
+		// TODO 自動生成されたメソッド・スタブ
+		super.init();
+
+		try {
+			mOracle = new Oracle();
+			mOracle.connect("ux4", DB_ID, DB_PASS);
+
+			// テーブルが無ければ作成
+			if (!mOracle.isTable("db_worldmap")) {
+				mOracle.execute("create table db_worldmap(id number,data varchar2(500))");
+			}
+		} catch (Exception e) {
+			System.err.println("認証に失敗しました");
+		}
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
