@@ -2,6 +2,8 @@ package worldmap;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 import net.arnx.jsonic.JSON;
 
 //
+class ReturnData {
+	public String data;
+}
+
+class SendData2 {
+	public int id;
+}
 
 /**
  * Servlet implementation class WorldmapIpoDB
@@ -74,13 +83,27 @@ public class WorldDB extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		// データの受け取り処理
-		SendData sendData = JSON
-				.decode(request.getInputStream(), SendData.class);
-		// 書き込み処理
-		String sql = String
-				.format("insert into db_worldmap values('%s','%s')",
-						sendData.id, sendData.data);
-		mOracle.execute(sql);
+		SendData2 sendData = JSON.decode(request.getInputStream(),
+				SendData2.class);
 
+		try {
+
+			ResultSet res = mOracle
+					.query("select * from db_worldmap where id = "
+							+ sendData.id);
+
+			res.next();
+
+			ReturnData reData = new ReturnData();
+			reData.data = res.getString(2);
+
+			// JSON形式に変換
+			String json = JSON.encode(reData);
+			// 出力
+			out.println(json);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

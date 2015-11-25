@@ -1,7 +1,6 @@
 package worldmap;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -74,7 +73,7 @@ public class WorldmapIpoDB extends HttpServlet {
 		// 出力ストリームの作成
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/plain; charset=UTF-8");
-		PrintWriter out = response.getWriter();
+
 
 		// データの受け取り処理
 		SendData sendData = JSON
