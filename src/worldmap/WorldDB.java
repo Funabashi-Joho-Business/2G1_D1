@@ -16,7 +16,7 @@ import net.arnx.jsonic.JSON;
 /**
  * Servlet implementation class WorldmapIpoDB
  */
-@WebServlet("/WorldmapIpoDB")
+@WebServlet("/WorldDB")
 public class WorldDB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private worldmap.Oracle mOracle;
